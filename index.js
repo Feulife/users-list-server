@@ -19,7 +19,7 @@ const httpServer = http.createServer(app);
 
  mongoose.connect(Db, {useNewUrlParser: true})
   .then(() => {
-    console.info('Connected to CookBook DataBase');
+    console.info('Connected to List of users DataBase');
   })
   .catch((error) => {
     console.error(error);
