@@ -1,0 +1,14 @@
+{
+  "name": "users-list-server",
+  "version": "1.0.0",
+  "description": "List of users - server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrii",
+  "license": "MIT",
+  "dependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
