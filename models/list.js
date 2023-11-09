@@ -1,4 +1,4 @@
-import ListUsers from "./listUsers";
+import ListUsers from "./listUsers.js";
 
 export const models = {
   ListUsers

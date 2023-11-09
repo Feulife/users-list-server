@@ -1,7 +1,28 @@
-import ListUsers from "../models/listUsers";
+import ListUsers from "../models/listUsers.js";
 
 const query = {
-  list: async () => await ListUsers.find({}),
+  lists: async () => await ListUsers.find({}).limit(100),
+
+  users: async (_, { cursor }) => {
+    const limit = 10
+    let hasNextPage = false
+    let cursorQuery = {}
+    if (cursor) cursorQuery = { _id: { $lt: cursor } }
+    let lists = await ListUsers
+      .find(cursorQuery)
+      .sort({ _id: -1 })
+      .limit(limit + 1)
+    if (lists.length > limit) {
+      hasNextPage = true
+      lists = lists.slicea(0, -1)
+    }
+    const newCursor = lists[lists.length - 1]._id
+    return {
+      lists,
+      cursor: newCursor,
+      hasNextPage
+    }
+  },
 
   name: async (_, args) => {
     const result = await ListUsers.find({ name: `${args.name}` });

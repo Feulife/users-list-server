@@ -1,4 +1,4 @@
-import ListUsers from "../models/listUsers";
+import ListUsers from "../models/listUsers.js";
 
 const mutation = {
   create: async (_, { name, surname, email, telephone, birthday }) => {
