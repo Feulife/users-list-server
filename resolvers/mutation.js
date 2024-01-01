@@ -15,7 +15,7 @@ const mutation = {
     return null
   },
 
-  edit: async (_, { name, surname, email, telephone, birthday }) => {
+  edit: async (_, {id, name, surname, email, telephone, birthday }) => {
     const result = await ListUsers.updateOne(
       { _id: id },
       { $set: { name, surname, email, telephone, birthday } }
